@@ -8,10 +8,22 @@
  * @return {number[]}
  */
 const topKFrequent = (nums, k) => {
-    if (nums.length === 0) return [];
     const map = {};
     for (let i = 0; i < nums.length; i++) {
-        map[nums[i]] = !map[nums[i]] ? 1 : map[nums[i]] + 1;
+        const num = nums[i];
+        if (map[num]) {
+            map[num] = map[num] + 1;
+        } else {
+            map[num] = 1;
+        }
+
     }
-    return Object.keys(map).sort((a,b) => map[b] - map[a]).splice(0, k)
+    return Object.keys(map)
+        .sort((a,b) => map[b] - map[a])
+        .splice(0, k)
+};
+
+const test = () => {
+    const result = topKFrequent([1, 2, 3, 2, 3, 4, 1, 1, 2, 3, 4, 5, 2, 45324, 3], 2);
+    console.log(result); // [2, 3]
 };

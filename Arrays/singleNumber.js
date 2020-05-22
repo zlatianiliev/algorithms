@@ -15,11 +15,16 @@ const getFirstElementValue = obj => obj[Object.keys(obj)[0]];
 const singleNumber = nums => {
     const map = {};
     for (let i = 0; i < nums.length; i++) {
-        if (map[`${nums[i]}`] === undefined) {
-            map[`${nums[i]}`] = nums[i];
+        if (map[nums[i]] === undefined) {
+            map[nums[i]] = nums[i];
         } else {
-            delete map[`${nums[i]}`];
+            delete map[nums[i]];
         }
     }
     return getFirstElementValue(map);
+};
+
+const test = () => {
+    const result = singleNumber([1, 1, 2, 2, 3, 4, 4]);
+    console.log(result); // 3
 };
