@@ -6,17 +6,15 @@
  */
 
 const fizzBuzz = n => {
-    const arr = new Array(n);
     for (let i = 1; i <= n; i++) {
         if (i % 3 === 0 && i % 5 === 0) {
-            arr[i-1] = ("FizzBuzz");
+            console.log("FizzBuzz");
         } else if(i % 5 === 0) {
-            arr[i-1] = ("Buzz");
+            console.log("Buzz");
         } else if(i % 3 === 0) {
-            arr[i-1] = ("Fizz");
+            console.log("Fizz");
         } else {
-            arr[i-1] = (`${i}`);
+            console.log(`${i}`);
         }
     }
-    return arr;
-}
+};

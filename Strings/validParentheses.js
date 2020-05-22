@@ -42,7 +42,5 @@ const isValid = (s) => {
         }
     }
 
-    if (!stack.length) return true;
-
-    return false;
+    return !stack.length;
 };

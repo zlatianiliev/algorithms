@@ -14,7 +14,7 @@ const getFirstElementValue = obj => obj[Object.keys(obj)[0]];
  */
 const singleNumber = nums => {
     const map = {};
-    for (var i = 0; i < nums.length; i++) {
+    for (let i = 0; i < nums.length; i++) {
         if (map[`${nums[i]}`] === undefined) {
             map[`${nums[i]}`] = nums[i];
         } else {

@@ -4,11 +4,11 @@
 
 /**
  * Definition for singly-linked list.
- * function ListNode(val) {
- *     this.val = val;
- *     this.next = null;
- * }
- */
+ **/
+function ListNode(val) {
+    this.val = val;
+    this.next = null;
+}
 
 /**
  * @param {ListNode} head
@@ -18,9 +18,9 @@
 const removeElements = (head, val) => {
     if (!head) return head;
 
-    let ll = new ListNode();
-    ll.next = head;
-    let curr = ll;
+    let result = head;
+    let curr = result;
+
     while (curr && curr.next) {
         if (curr.next.val === val) {
             curr.next = curr.next.next;
@@ -28,5 +28,15 @@ const removeElements = (head, val) => {
             curr = curr.next;
         }
     }
-    return ll.next;
+    return result;
+};
+
+const test = () => {
+    const linkedList = new ListNode(1);
+    linkedList.next = new ListNode(7);
+    linkedList.next.next = new ListNode(5);
+    linkedList.next.next.next = new ListNode(4);
+
+    const modifiedLinkList = removeElements(linkedList, 5);
+    console.log(modifiedLinkList); // 1 -> 7 -> 4
 };
