@@ -15,10 +15,11 @@
 */
 const isValid = (s) => {
     if (s.length === 0) return true;
-    if (s.length & 2 !== 0) return false;
+    if (s.length % 2 !== 0) return false;
+
     const stack = [];
 
-    for (var i = 0; i < s.length; i++) {
+    for (let i = 0; i < s.length; i++) {
         if (s[i] === '(' || s[i] === '[' || s[i] === '{') {
             stack.push(s[i]);
         }
@@ -28,19 +29,29 @@ const isValid = (s) => {
                 return false;
             }
 
-            const tempBrack = stack.pop();
+            const tempBracket = stack.pop();
 
-            if (s[i] === ')' && tempBrack !== '(') {
+            if (s[i] === ')' && tempBracket !== '(') {
                 return false;
             }
-            if (s[i] === '}' && tempBrack !== '{') {
+            if (s[i] === '}' && tempBracket !== '{') {
                 return false;
             }
-            if (s[i] === ']' && tempBrack !== '[') {
+            if (s[i] === ']' && tempBracket !== '[') {
                 return false;
             }
         }
     }
 
-    return !stack.length;
+    if (!stack.length) return true;
+
+    return false;
+};
+
+const test = () => {
+    const valid = isValid('{}{}[([{}])]{}{}[]');
+    const invalid = isValid('[([{}])]{{}');
+
+    console.log(valid); // true
+    console.log(invalid); // false
 };

@@ -18,3 +18,5 @@ const fizzBuzz = n => {
         }
     }
 };
+
+const test = () => fizzBuzz(100);
