@@ -8,7 +8,7 @@
  * @param {number[]} arr2
  * @return {number[]}
  */
-const mergeTwoLists = (arr1, arr2) => {
+const mergeTwoSortedArrays = (arr1, arr2) => {
     let result = [];
 
     while (arr1.length && arr2.length) {
@@ -31,6 +31,6 @@ const test = () => {
     const arr1 = [1, 2, 4, 77];
     const arr2 = [1, 3, 4];
 
-    const result = mergeTwoLists(arr1, arr2);
+    const result = mergeTwoSortedArrays(arr1, arr2);
     console.log(result); // [1, 1, 2, 3, 4, 77]
 };
